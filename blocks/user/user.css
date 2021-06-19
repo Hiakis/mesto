@@ -1,0 +1,15 @@
+.user {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+
+@media screen and (max-width: 1023px) {
+  .user {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+}
+

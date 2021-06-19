@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+  <header class="header">
+    <img class="logo" src="./images/Vector.svg" alt="место">
+  </header>
+  <main>
+    <section class="profile">
+      <div class="user">
+        <img class="user__avatar" src="./images/Jack.jpg" alt="портрет Жак-Ив-Кусто">
+        <div class="container">
+          <h1 class="container__title">Жак-Ив Кусто<button type="button" class="container__popup-button"></button></h1>
+          <p class="container__subtitle">Исследователь океана</p>
+        </div>
+      </div>
+      <button class="profile__button"></button>
+    </section>
+    <section class="elements">
+      <ul class="cards">
+        <li class="card">
+          <img class="card__image" src="./images/karachaevsc.jpg" alt="Заброшенный монастырь">
+          <div class="card__content">
+            <h2 class="card__text">Карачаево-Черкессия</h2>
+            <button class="card__like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__image" src="./images/albrus.jpg" alt="Степь и горы">
+          <div class="card__content">
+            <h2 class="card__text">Гора Эльбрус</h2>
+            <button class="card__like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__image" src="./images/dombai.jpg" alt="Лес и горы">
+          <div class="card__content">
+            <h2 class="card__text">Домбай</h2>
+            <button class="card__like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__image" src="./images/arshan.jpg" alt="Леса и заснеженные горы">
+          <div class="card__content">
+            <h2 class="card__text">Аршан</h2>
+            <button class="card__like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__image" src="./images/shticovscie-prudi.jpg" alt="Побережье и горы">
+          <div class="card__content">
+            <h2 class="card__text">Штыковские пруды</h2>
+            <button class="card__like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__image" src="./images/lastochkino-gnezdo.jpg" alt="Замок на горе">
+          <div class="card__content">
+            <h2 class="card__text">Ласточкино гнездо</h2>
+            <button class="card__like"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&#169; 2021 Гаркуша Илья</p>
+  </footer>
+  <section class="popup popup_is_opened">
+    <div class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form" type="submit">
+        <input class="popup__input popup__input_author" type="text" name="popup__author" value="Жак-Ив Кусто" minlength="2" maxlength="35" placeholder="Введите текст" required>
+        <input class="popup__input popup__input_about" type="text" name="popup__author-about" value="Исследователь океана" minlength="2" maxlength="35" placeholder="Введите текст" required>
+        <button type="submit" class="popup__save-button">Сохранить</button>
+      </form>
+      <button type="button" class="popup__close-button"></button>
+    </div>
+  </section>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>
