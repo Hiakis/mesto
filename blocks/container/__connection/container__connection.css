@@ -1,0 +1,5 @@
+.container__conection {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}

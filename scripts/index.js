@@ -5,15 +5,17 @@ const popupOpenButtonElement = containerElement.querySelector('.container__popup
 const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
 const formElement = popupElement.querySelector('.popup__form');
-const authorInput = formElement.querySelector('.popup__input_author');
-const aboutInput = formElement.querySelector('.popup__input_about');
+const authorInput = formElement.querySelector('.popup__input_type_author');
+const aboutInput = formElement.querySelector('.popup__input_type_about');
 const popupSaveButtonElement = formElement.querySelector('.popup__save-button');
 
-const closePopup = function () {
+const openPopup = function () {
   popupElement.classList.add('popup_is_opened');
+  authorInput.value = authorProfile.textContent
+  aboutInput.value = aboutProfile.textContent
 }
 
-const openPopup = function () {
+const closePopup = function () {
   popupElement.classList.remove('popup_is_opened');
 }
 
@@ -26,6 +28,7 @@ const closePopupByClickOnOverlay = function(event) {
   closePopup()
 }
 
+
 const addTextProfile = function(evt) {
   evt.preventDefault()
   authorProfile.textContent = authorInput.value
@@ -33,7 +36,9 @@ const addTextProfile = function(evt) {
   closePopup()
 }
 
+
+
 popupOpenButtonElement.addEventListener('click', openPopup)
 popupCloseButtonElement.addEventListener('click', closePopup)
 popupElement.addEventListener('click', closePopupByClickOnOverlay)
-popupElement.addEventListener('submit', addTextProfile)
+formElement.addEventListener('submit', addTextProfile)
