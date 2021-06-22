@@ -3,3 +3,10 @@
   flex-wrap: nowrap;
   align-items: baseline;
 }
+
+
+@media screen and (max-width: 639px) {
+  .container__conection {
+    margin-left: 30px;
+  }
+}
