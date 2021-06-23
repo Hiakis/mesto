@@ -12,11 +12,11 @@ const popupSaveButtonElement = formElement.querySelector('.popup__save-button');
 const openPopup = function () {
   authorInput.value = authorProfile.textContent;
   aboutInput.value = aboutProfile.textContent;
-  popupElement.classList.add('popup__opened');
+  popupElement.classList.add('popup_opened');
 }
 
 const closePopup = function () {
-  popupElement.classList.remove('popup__opened');
+  popupElement.classList.remove('popup_opened');
 }
 
 const closePopupByClickOnOverlay = function(event) {
