@@ -27,11 +27,11 @@ const figcaptionCard = popupElementImage.querySelector('.popup__figcaption');
 
 
 function setEventDeleted(cardsTemplateElement) {
-  cardsTemplateElement.querySelector('.card__delete').addEventListener('click', cardsDeleted);
+  cardsTemplateElement.querySelector('.card__delete').addEventListener('click', handleLikeClick);
 }
 
 
-function cardsDeleted(evt) {
+function handleLikeClick(evt) {
   const cardsTemplateElement = evt.target.closest('.card');
   cardsTemplateElement.remove();
 }
@@ -64,7 +64,6 @@ function createCard (newName, newLink) {
   }
 
   imageCards.addEventListener('click', () => openCardPopup(popupElementImage));
-  popupCloseButtonImage.addEventListener('click', () => closePopup(popupElementImage));
 
   return cardsTemplateElement;
 }
@@ -79,8 +78,7 @@ const addNewCard = (evt) => {
   const newLink = linkInput.value;
   listCards.prepend(createCard(newName, newLink));
   closePopup(popupElementCards);
-  nameInput.value.reset();
-  linkInput.value.reset();
+  formElementCards.reset();
 }
 
 
@@ -124,6 +122,7 @@ formElement.addEventListener('submit', addTextProfile);
 popupOpenButtonElementProfile.addEventListener('click', () => openPopup(popupElementCards));
 popupCloseButtonElementCards.addEventListener('click', () => closePopup(popupElementCards));
 popupElementCards.addEventListener('click', closePopupByClickOnOverlay);
+popupCloseButtonImage.addEventListener('click', () => closePopup(popupElementImage));
 popupElementImage.addEventListener('click', closePopupByClickOnOverlay);
 formElementCards.addEventListener('submit', addNewCard);
 // ↑ Слушатели  ↑
