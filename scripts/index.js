@@ -27,11 +27,11 @@ const figcaptionCard = popupElementImage.querySelector('.popup__figcaption');
 
 
 function setEventDeleted(cardsTemplateElement) {
-  cardsTemplateElement.querySelector('.card__delete').addEventListener('click', handleLikeClick);
+  cardsTemplateElement.querySelector('.card__delete').addEventListener('click', handleDeleteCard);
 }
 
 
-function handleLikeClick(evt) {
+function handleDeleteCard(evt) {
   const cardsTemplateElement = evt.target.closest('.card');
   cardsTemplateElement.remove();
 }
