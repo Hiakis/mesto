@@ -87,16 +87,19 @@ function openProfilePopup (profilePopup) {
   aboutInput.value = aboutProfile.textContent;
   openPopup(profilePopup);
 }
+// ↑ Функция открытия popup для профиля ↑
 
 const openPopup = (selectedPopup) => {
   selectedPopup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByClickOnEsc)
 }
-
+// ↑ Универсальная функция открытия popup ↑
 
 const closePopup = (selectedPopup) => {
   selectedPopup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByClickOnEsc)
 }
-
+// ↑ Универсальная функция закрытия popup ↑
 
 const closePopupByClickOnOverlay = (event) => {
   if (event.target !== event.currentTarget) {
@@ -105,7 +108,16 @@ const closePopupByClickOnOverlay = (event) => {
 
   closePopup(event.target);
 }
+// ↑ Универсальная функция закрытия popup по нажатию на оверлей ↑
 
+const closeByClickOnEsc = (event) => {
+  const key = event.key
+  if (key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup)
+    }
+}
+// ↑ Универсальная функция закрытия popup по нажатию кнопки Esc ↑
 
 const addTextProfile = (evt) => {
   evt.preventDefault()
@@ -113,7 +125,7 @@ const addTextProfile = (evt) => {
   aboutProfile.textContent = aboutInput.value;
   closePopup(popupElement);
 }
-
+// ↑ Функция добавления текста профиля на страницу ↑
 
 popupOpenButtonElement.addEventListener('click', () => openProfilePopup(popupElement));
 popupCloseButtonElement.addEventListener('click', () => closePopup(popupElement));
