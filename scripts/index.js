@@ -72,6 +72,8 @@ initialCards.forEach (function (element) {
   listCards.append(createCard(element.name, element.link));
 });
 
+
+
 const addNewCard = (evt) => {
   evt.preventDefault();
   const newName = nameInput.value;
@@ -79,7 +81,12 @@ const addNewCard = (evt) => {
   listCards.prepend(createCard(newName, newLink));
   closePopup(popupElementCards);
   formElementCards.reset();
+  const inputList = Array.from(formElementCards.querySelectorAll('.popup__input'));
+  const buttonElement = formElementCards.querySelector('.popup__save-button');
+  const inactiveButtonClass = 'popup__save-button_inactive';
+  toggleButtonState(inputList, buttonElement, inactiveButtonClass);
 }
+
 
 
 function openProfilePopup (profilePopup) {
