@@ -1,5 +1,5 @@
 import {Card} from './card.js';
-import {Validate} from "./validate.js";
+import {FormValidator} from "./validate.js";
 
 
 const containerElement = document.querySelector('.container');
@@ -43,12 +43,10 @@ function openImagePopup (name, link) {
 
 const addNewCard = (evt) => {
   const card = new Card (nameInput.value, linkInput.value, cardsTemplate);
-  const validateCards = new Validate(formElementCards, config)
   evt.preventDefault();
   listCards.append(card.rendering())
   closePopup(popupElementCards);
   formElementCards.reset();
-  validateCards._toggleButtonState()
 }
 
 const config = {
@@ -57,12 +55,14 @@ const config = {
   submitButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_inactive',
   inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error',
+  inputSection: 'popup__section',
   inputInvalidClass: 'popup__input_type_invalid'
 }
 
-const validateProfile = new Validate(formElement, config)
+const validateProfile = new FormValidator (config, formElement)
 validateProfile.enableValidation();
-const validateCards = new Validate(formElementCards, config)
+const validateCards = new FormValidator (config, formElementCards)
 validateCards.enableValidation();
 
 function openProfilePopup (profilePopup) {
