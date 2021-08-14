@@ -1,6 +1,6 @@
 import {Card} from './Card.js';
 import {FormValidator} from "./FormValidator.js";
-
+import {initialCards} from "./InitialCards.js";
 
 const containerElement = document.querySelector('.container');
 const authorProfile = containerElement.querySelector('.container__title');
@@ -10,8 +10,6 @@ const popupOpenButtonElementProfile = document.querySelector('.profile__button')
 const cardsElement = document.querySelector('.cards');
 const cardsTemplate = document.querySelector('.cards-template').content;
 const listCards = cardsElement.querySelector('.cards__list');
-const nameCards = cardsElement.querySelector('.card__text');
-const linkCards = cardsElement.querySelector('.card__image');
 const popupElement = document.querySelector('.popup_type_user');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
 const formElement = popupElement.querySelector('.popup__form');
