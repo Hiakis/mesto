@@ -1,14 +1,14 @@
 export class Card {
-  constructor(name, link, cardSelector, openImagePopup) {
+  constructor(name, link, cardTemplate, openImagePopup) {
     this._name = name;
     this._link = link;
-    this._cardSelector = cardSelector;
+    this._cardTemplate = cardTemplate;
     this._openImagePopup = openImagePopup
   }
 
 
   rendering = () => {
-    this._newCard = this._cardSelector.querySelector('.card').cloneNode(true);
+    this._newCard = this._cardTemplate.querySelector('.card').cloneNode(true);
     this._cardText = this._newCard.querySelector('.card__text');
     this._cardImage = this._newCard.querySelector('.card__image');
     this._cardDelete = this._newCard.querySelector('.card__delete');
@@ -26,14 +26,26 @@ export class Card {
 
   _setEventListeners() {
     this._cardDelete.addEventListener('click', (evt) => {
-      evt.target.closest('.card').remove();
+      this._evtDelete(evt)
     });
     this._cardLike.addEventListener('click', (evt) => {
-      evt.target.classList.toggle('card__like_active')
+      this._evtLike(evt)
     });
     this._cardImage.addEventListener('click', () => {
-      this._openImagePopup(this._name, this._link)
+      this._openImage()
     })
+  }
+
+  _evtDelete (evt) {
+    evt.target.closest('.card').remove();
+  }
+
+  _evtLike (evt) {
+    evt.target.classList.toggle('card__like_active')
+  }
+
+  _openImage () {
+    this._openImagePopup(this._name, this._link)
   }
 }
 

@@ -44,14 +44,14 @@
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="popup__form" novalidate>
-        <section class="popup__section">
+        <div class="popup__section">
         <input class="popup__input popup__input_type_author" id="author-input" type="text" name="popup__input_type_author" minlength="2" maxlength="40" placeholder="Введите текст" required>
         <span class="popup__input-error" id="author-input-error"></span>
-        </section>
-        <section class="popup__section">
+        </div>
+        <div class="popup__section">
         <input class="popup__input popup__input_type_about" id="about-input" type="text" name="popup__input_type_about" minlength="2" maxlength="200" placeholder="Введите текст" required>
         <span class="popup__input-error" id="about-input-error"></span>
-        </section>
+        </div>
         <button type="submit" class="popup__save-button">Сохранить</button>
       </form>
       <button type="button" class="popup__close-button"></button>
@@ -61,14 +61,14 @@
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form" name="popup__form" novalidate>
-        <section class="popup__section">
+        <div class="popup__section">
         <input class="popup__input popup__input_type_name" id="name-input" type="text" name="popup__input_type_name" minlength="2" maxlength="30" placeholder="Название" required>
         <span class="popup__input-error" id="name-input-error"></span>
-        </section>
-        <section class="popup__section">
+        </div>
+        <div class="popup__section">
         <input class="popup__input popup__input_type_link" id="link-input" type="url" name="popup__input_type_link" placeholder="Ссылка на картинку" required>
         <span class="popup__input-error" id="link-input-error"></span>
-        </section>
+        </div>
         <button type="submit" class="popup__save-button">Создать</button>
       </form>
       <button type="button" class="popup__close-button"></button>
@@ -83,9 +83,9 @@
       <button type="button" class="popup__close-button"></button>
     </div>
   </article>
-  <script type="module" src="./scripts/validate.js"></script>
-  <script src="./scripts/initial-сards.js"></script>
-  <script type="module" src="./scripts/card.js"></script>
+  <script type="module" src="scripts/FormValidator.js"></script>
+  <script src="scripts/InitialCards.js"></script>
+  <script type="module" src="scripts/Card.js"></script>
   <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

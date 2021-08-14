@@ -1,5 +1,5 @@
-import {Card} from './card.js';
-import {FormValidator} from "./validate.js";
+import {Card} from './Card.js';
+import {FormValidator} from "./FormValidator.js";
 
 
 const containerElement = document.querySelector('.container');
@@ -28,10 +28,18 @@ const imageCard = popupElementImage.querySelector('.popup__image');
 const figcaptionCard = popupElementImage.querySelector('.popup__figcaption');
 // ↑ Объявляем DOM элементы ↑
 
-initialCards.forEach ((element) => {
-  const card = new Card (element.name, element.link, cardsTemplate, openImagePopup);
 
-  listCards.append(card.rendering())
+
+const renderCard = (data, wrap) => {
+  const card = new Card(data.name, data.link, cardsTemplate, openImagePopup);
+  wrap.prepend(card.rendering());
+};
+
+initialCards.forEach ((element) => {
+  renderCard({
+    name: element.name,
+    link: element.link
+  }, listCards);
 });
 
 function openImagePopup (name, link) {
@@ -42,11 +50,15 @@ function openImagePopup (name, link) {
 }
 
 const addNewCard = (evt) => {
-  const card = new Card (nameInput.value, linkInput.value, cardsTemplate);
   evt.preventDefault();
-  listCards.append(card.rendering())
+  renderCard({
+    name: nameInput.value,
+    link: linkInput.value
+  }, listCards);
   closePopup(popupElementCards);
   formElementCards.reset();
+  validateCards.toggleButtonState()
+  validateCards.resetValidation()
 }
 
 const config = {
@@ -55,8 +67,6 @@ const config = {
   submitButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_inactive',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error',
-  inputSection: 'popup__section',
   inputInvalidClass: 'popup__input_type_invalid'
 }
 
@@ -69,6 +79,7 @@ function openProfilePopup (profilePopup) {
   authorInput.value = authorProfile.textContent;
   aboutInput.value = aboutProfile.textContent;
   openPopup(profilePopup);
+  validateProfile.resetValidation()
 }
 // ↑ Функция открытия popup для профиля ↑
 
