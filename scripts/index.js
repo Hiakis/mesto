@@ -131,12 +131,3 @@ popupElementImage.addEventListener('click', closePopupByClickOnOverlay);
 popupElementCards.addEventListener('submit', addNewCard)
 // ↑ Слушатели  ↑
 
-
-
-
-/*
-  const inputList = Array.from(formElementCards.querySelectorAll('.popup__input'));
-  const buttonElement = formElementCards.querySelector('.popup__save-button');
-  const inactiveButtonClass = 'popup__save-button_inactive';
-  toggleButtonState(inputList, buttonElement, inactiveButtonClass);
- */
