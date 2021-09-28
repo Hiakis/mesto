@@ -1,9 +1,9 @@
 export class Card {
-  constructor(name, link, cardTemplate, openImagePopup) {
-    this._name = name;
-    this._link = link;
+  constructor(data, cardTemplate, handleCardClick) {
+    this._name = data.name;
+    this._link = data.link;
     this._cardTemplate = cardTemplate;
-    this._openImagePopup = openImagePopup
+    this._handleCardClick = handleCardClick
   }
 
 
@@ -32,7 +32,7 @@ export class Card {
       this._evtLike(evt)
     });
     this._cardImage.addEventListener('click', () => {
-      this._openImage()
+      this._handleCardClick(this._link, this._name);
     })
   }
 
@@ -42,9 +42,5 @@ export class Card {
 
   _evtLike (evt) {
     evt.target.classList.toggle('card__like_active')
-  }
-
-  _openImage () {
-    this._openImagePopup(this._name, this._link)
   }
 }
