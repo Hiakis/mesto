@@ -1,4 +1,4 @@
-export class Popup {
+export default class Popup {
   constructor(selectorPopup) {
     this._selectorPopup = selectorPopup
   };
