@@ -8,11 +8,11 @@ import {PopupWithForm} from "../scripts/components/PopupWithForm.js";
 import {popupOpenButtonElementProfile, popupOpenButtonElement, user, aboutInput, authorInput, popupElementCards,
   popupElement, popupElementImage, listCards, formElement, cardsTemplate, formElementCards, linkInput, nameInput} from "../scripts/utils/constants.js";
 import {config} from "../scripts/utils/config.js";
+import '../pages/index.css'
 
 const imagePopup = new PopupWithImage(popupElementImage)
 function handleCardClick(link, name) {
   imagePopup.open(link, name);
-  imagePopup.setEventListeners()
 }
 
 const cardList = new Section(
@@ -40,7 +40,6 @@ const addCard = new PopupWithForm(popupElementCards, cardFormSubmit)
 
 function userFormSubmit({name, about}) {
   profileInfo.setUserInfo({name, about})
-  editProfile.close()
 }
 
 function cardFormSubmit() {
@@ -51,7 +50,6 @@ function cardFormSubmit() {
   formElementCards.reset();
   validateCards.toggleButtonState()
   validateCards.resetValidation()
-  addCard.close()
 }
 
 function editProfilePopup() {
@@ -67,6 +65,6 @@ function editCardPopup() {
 popupOpenButtonElementProfile.addEventListener('click', editCardPopup)
 popupOpenButtonElement.addEventListener('click', editProfilePopup);
 
-
+imagePopup.setEventListeners()
 addCard.setEventListeners()
 editProfile.setEventListeners()
