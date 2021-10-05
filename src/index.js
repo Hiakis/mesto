@@ -1,14 +1,14 @@
-import {Card} from '../scripts/components/Card.js';
-import {FormValidator} from "../scripts/components/FormValidator.js";
-import {initialCards} from "../scripts/utils/InitialCards.js";
-import {Section} from "../scripts/components/Section.js";
-import {PopupWithImage} from "../scripts/components/PopupWithImage.js";
-import {UserInfo} from "../scripts/components/UserInfo.js";
-import {PopupWithForm} from "../scripts/components/PopupWithForm.js";
+import {Card} from './scripts/components/Card.js';
+import {FormValidator} from "./scripts/components/FormValidator.js";
+import {initialCards} from "./scripts/utils/InitialCards.js";
+import {Section} from "./scripts/components/Section.js";
+import {PopupWithImage} from "./scripts/components/PopupWithImage.js";
+import {UserInfo} from "./scripts/components/UserInfo.js";
+import {PopupWithForm} from "./scripts/components/PopupWithForm.js";
 import {popupOpenButtonElementProfile, popupOpenButtonElement, user, aboutInput, authorInput, popupElementCards,
-  popupElement, popupElementImage, listCards, formElement, cardsTemplate, formElementCards, linkInput, nameInput} from "../scripts/utils/constants.js";
-import {config} from "../scripts/utils/config.js";
-import '../pages/index.css'
+  popupElementProfile, popupElementImage, listCards, formElementProfile, cardsTemplate, formElementCards, linkInput, nameInput} from "./scripts/utils/constants.js";
+import {config} from "./scripts/utils/config.js";
+import './pages/index.css'
 
 const imagePopup = new PopupWithImage(popupElementImage)
 function handleCardClick(link, name) {
@@ -29,18 +29,20 @@ function renderCard (item) {
 
 
 
-const validateProfile = new FormValidator (config, formElement)
-validateProfile.enableValidation();
+const validateProfile = new FormValidator (config, formElementProfile)
+
 const validateCards = new FormValidator (config, formElementCards)
-validateCards.enableValidation();
+
 
 const profileInfo = new UserInfo({nameSelector: user.authorProfile, aboutSelector: user.aboutProfile})
-const editProfile = new PopupWithForm(popupElement, userFormSubmit)
+const editProfile = new PopupWithForm(popupElementProfile, userFormSubmit)
 const addCard = new PopupWithForm(popupElementCards, cardFormSubmit)
 
 function userFormSubmit({name, about}) {
   profileInfo.setUserInfo({name, about})
 }
+
+
 
 function cardFormSubmit() {
   renderCard({
@@ -48,7 +50,6 @@ function cardFormSubmit() {
     link: linkInput.value
   }, listCards);
   formElementCards.reset();
-  validateCards.toggleButtonState()
   validateCards.resetValidation()
 }
 
@@ -60,6 +61,7 @@ function editProfilePopup() {
 
 function editCardPopup() {
   addCard.open()
+  validateCards.toggleButtonState()
 }
 
 popupOpenButtonElementProfile.addEventListener('click', editCardPopup)
@@ -68,3 +70,5 @@ popupOpenButtonElement.addEventListener('click', editProfilePopup);
 imagePopup.setEventListeners()
 addCard.setEventListeners()
 editProfile.setEventListeners()
+validateProfile.enableValidation();
+validateCards.enableValidation();

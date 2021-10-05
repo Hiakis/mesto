@@ -25,8 +25,8 @@ export class Card {
 
 
   _setEventListeners() {
-    this._cardDelete.addEventListener('click', (evt) => {
-      this._evtDelete(evt)
+    this._cardDelete.addEventListener('click', () => {
+      this._evtDelete()
     });
     this._cardLike.addEventListener('click', (evt) => {
       this._evtLike(evt)
@@ -36,8 +36,8 @@ export class Card {
     })
   }
 
-  _evtDelete (evt) {
-    evt.target.closest('.card').remove();
+  _evtDelete () {
+    this._newCard.remove();
   }
 
   _evtLike (evt) {

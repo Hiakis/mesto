@@ -7,12 +7,12 @@
 </head>
 <body class="page">
   <header class="header">
-    <a href="#" target="_self"><img class="logo" src="../images/Vector.svg" alt="место"></a>
+    <a href="#" target="_self"><img class="logo" src="<%=require('./images/Vector.svg')%>" alt="место"></a>
   </header>
   <main>
     <section class="profile">
       <div class="user">
-        <img class="user__avatar" src="../images/Jack.jpg" alt="аватар пользователя">
+        <img class="user__avatar" src="<%=require('./images/Jack.jpg')%>" alt="аватар пользователя">
         <div class="container">
         <div class="container__conection"><h1 class="container__title">Жак-Ив Кусто</h1>
           <button type="button" class="container__popup-button"></button></div>
@@ -42,7 +42,7 @@
   <article class="popup popup_type_user">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="popup__form" novalidate>
+      <form class="popup__form" name="popup__form_type_user" novalidate>
         <div class="popup__section">
         <input class="popup__input popup__input_type_author" id="author-input" type="text" name="name" minlength="2" maxlength="40" placeholder="Введите текст" required>
         <span class="popup__input-error" id="author-input-error"></span>
@@ -59,7 +59,7 @@
   <article class="popup popup_type_cards">
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form" name="popup__form" novalidate>
+      <form class="popup__form" name="popup__form_type_cards" novalidate>
         <div class="popup__section">
         <input class="popup__input popup__input_type_name" id="name-input" type="text" name="popup__input_type_name" minlength="2" maxlength="30" placeholder="Название" required>
         <span class="popup__input-error" id="name-input-error"></span>
