@@ -14,8 +14,8 @@ export const user = {
 }
 
 export const submitButtons = {
-  avatar: '.popup-avatar__submit-button',
-  editProfile: '.popup-edit__submit-button',
-  addCard: '.popup-add__submit-button',
-  deleteCard: '.popup-delete__submit-button'
+  avatar: document.querySelector('.popup-avatar__submit-button'),
+  editProfile: document.querySelector('.popup-edit__submit-button'),
+  addCard: document.querySelector('.popup-add__submit-button'),
+  deleteCard: document.querySelector('.popup-delete__submit-button'),
 }
