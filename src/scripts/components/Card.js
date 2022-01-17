@@ -78,7 +78,7 @@ export class Card {
   }
 
   setLikes(likes) {
-    this._likeButton.classList.toggle('element__like-button_active');
+    this._likeButton.classList.toggle('card__like_active');
     this._likeCounter.textContent = likes.length;
   }
 };

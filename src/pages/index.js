@@ -24,11 +24,11 @@ import './index.css'
 
 
 const userInfo = new UserInfo({nameSelector: user.authorProfile, aboutSelector: user.aboutProfile, avatarSelector: user.avatarProfile});
-const popupWithImage = new PopupWithImage('popup_type_cards-image');
-const popupAdd = new PopupWithForm('popup_type_cards', addFormSubmitHandler);
-const popupEdit = new PopupWithForm('popup_type_user', editFormSubmitHandler);
-const popupAvatar = new PopupWithForm('popup-avatar', avatarFormSubmitHandler);
-const popupDelete = new PopupWithConfirm('popup-delete', deleteFormSubmitHandler);
+const popupWithImage = new PopupWithImage('.popup_type_cards-image');
+const popupAdd = new PopupWithForm('.popup_type_cards', addFormSubmitHandler);
+const popupEdit = new PopupWithForm('.popup_type_user', editFormSubmitHandler);
+const popupAvatar = new PopupWithForm('.popup-avatar', avatarFormSubmitHandler);
+const popupDelete = new PopupWithConfirm('.popup-delete', deleteFormSubmitHandler);
 const popupEditFormValidator = new FormValidator(config, popupEditFormSelector);
 const popupAddFormValidator = new FormValidator(config, popupAddFormSelector);
 const popupAvatarFormValidator = new FormValidator(config, popupAvatarFormSelector);
